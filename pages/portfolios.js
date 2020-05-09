@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
-import Layout from "../layout/Layout";
-
+import Layout from "../Layout/Layout";
+import BaseWrapper from "../components/BaseWrapper";
 const Portfolios = () => {
   return (
     <Layout>
-      <h1>Hello Portfolios page</h1>
+      <BaseWrapper>
+        <h1>Hello Portfolios page</h1>
+      </BaseWrapper>
     </Layout>
   );
 };

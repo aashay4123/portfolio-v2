@@ -1,10 +1,13 @@
 import React, { Fragment } from "react";
-import Layout from "../layout/Layout";
+import Layout from "../Layout/Layout";
+import BaseWrapper from "../components/BaseWrapper";
 
 const Blogs = () => {
   return (
     <Layout>
-      <h1>Hello Blogs page</h1>
+      <BaseWrapper>
+        <h1>Hello Blogs page</h1>
+      </BaseWrapper>
     </Layout>
   );
 };
