@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Router from "next/router";
-import Layout from "../../Layout/Layout";
+import { Router } from "../../routes";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
-import { authenticate, isAuth } from "../../components/helper";
+import { authenticate } from "../../components/helper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import config from "../../server/config";
@@ -11,14 +11,14 @@ import BaseWrapper from "../../components/BaseWrapper";
 // import Facebook from "../services/facebook";
 // import Google from "../services/google";
 
-const Signin = () => {
+const Signin = (props) => {
   const [values, setValues] = useState({
     email: "",
     password: "",
     buttonText: "Submit",
   });
   const { email, password, buttonText } = values;
-
+  const auth = props.auth;
   const informParent = (response) => {
     authenticate(response, () => {
       setValues({
@@ -29,11 +29,7 @@ const Signin = () => {
         buttonText: "submitted",
       });
       toast.success(`hey ${response.data.user.name} welcome back!!`);
-      console.log(response.data);
-      isAuth() ? Router.push("/") : null;
-      // isAuth() && isAuth().role === "admin"
-      //   ? Router.push("/admin")
-      //   : Router.push("/private");
+      Router.pushRoute("/");
     });
   };
   const handleChange = (name) => (event) => {
@@ -88,11 +84,11 @@ const Signin = () => {
   );
 
   return (
-    <Layout>
+    <Layout auth={auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />
-          {isAuth() ? Router.push("/private") : null}
+          {auth.isAuthenticated ? Router.pushRoute("/") : null}
           <h1 className="p-5 text-center">Signin</h1>
           {/* <Google informParent={informParent} />
           <Facebook informParent={informParent} /> */}

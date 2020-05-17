@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import App, { Container } from "next/app";
 import { ToastContainer } from "react-toastify";
 // import Fonts from '../helpers/Fonts';
 
-// import auth0 from '../services/auth0';
+import { isAuth, serverAuth } from "../components/helper";
 
 // Stylings
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,33 +11,31 @@ import "../styles/main.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 export default class MyApp extends App {
-  // static async getInitialProps({ Component, router, ctx }) {
-  //   let pageProps = {};
-  //   const user = process.browser
-  //     ? await auth0.clientAuth()
-  //     : await auth0.serverAuth(ctx.req);
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {};
 
-  //   if (Component.getInitialProps) {
-  //     pageProps = await Component.getInitialProps(ctx);
-  //   }
+    let user = process.browser ? await isAuth() : await serverAuth(ctx.req);
 
-  //   const isSiteOwner =
-  //     user && user[process.env.NAMESPACE + "/role"] === "siteOwner";
-  //   const auth = { user, isAuthenticated: !!user, isSiteOwner };
+    const admin = user && user.role === "admin";
 
-  //   return { pageProps, auth };
-  // }
+    const auth = { user, isAuthenticated: !!user, admin };
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+    return { pageProps, auth };
+  }
 
   componentDidMount() {
     // Fonts();
   }
 
   render() {
-    const { Component, pageProps } = this.props;
-
+    const { Component, pageProps, auth } = this.props;
     return (
-      // <ToastContainer />
-      <Component {...pageProps} />
+      <Fragment>
+        <ToastContainer />
+        <Component {...pageProps} auth={auth} />
+      </Fragment>
     );
   }
 }

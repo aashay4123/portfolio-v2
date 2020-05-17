@@ -1,13 +1,11 @@
 import React, { Fragment } from "react";
-import Layout from "../Layout/Layout";
+import Layout from "../components/Layout/Layout";
 import BaseWrapper from "../components/BaseWrapper";
 
-const Blogs = () => {
+const Blogs = (props) => {
   return (
-    <Layout>
-      <BaseWrapper>
-        <h1>Hello Blogs page</h1>
-      </BaseWrapper>
+    <Layout auth={props.auth}>
+      <BaseWrapper title="This is blog page"></BaseWrapper>
     </Layout>
   );
 };

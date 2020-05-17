@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Layout from "../../Layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import config from "../../server/config";
 import BaseWrapper from "../../components/BaseWrapper";
 
-const Forgot = ({ history }) => {
+const Forgot = (props) => {
   const [values, setValues] = useState({
     email: "",
     buttonText: "Request Password Reset Link",
@@ -26,7 +26,6 @@ const Forgot = ({ history }) => {
       data: { email },
     })
       .then((response) => {
-        console.log("FORGOT PASSWORD SUCCESS", response);
         toast.success(response.data.success);
         setValues({ ...values, buttonText: "Requested" });
       })
@@ -57,7 +56,7 @@ const Forgot = ({ history }) => {
     </form>
   );
   return (
-    <Layout>
+    <Layout auth={props.auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />

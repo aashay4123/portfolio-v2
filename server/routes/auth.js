@@ -15,7 +15,7 @@ const {
   forgotPassword,
   resetPassword,
 } = require("../controllers/auth/auth");
-const { googleLogin, facebookLogin } = require("../controllers/auth/services");
+const { googleLogin, facebookLogin } = require("../services/services");
 
 router.post("/signup", userSignupValidator, runValidation, signup);
 router.post("/account_activate", accountActivation);

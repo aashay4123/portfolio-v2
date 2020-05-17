@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import Layout from "../Layout/Layout";
+import Layout from "../components/Layout/Layout";
 import BaseWrapper from "../components/BaseWrapper";
 
-const Cv = () => {
+const Cv = (props) => {
   return (
-    <Layout>
-      <BaseWrapper>
-        <h1>Hello Cv page</h1>
+    <Layout auth={props.auth}>
+      <BaseWrapper title="Hello Cv page">
+        <button>Download CV</button>
       </BaseWrapper>
     </Layout>
   );

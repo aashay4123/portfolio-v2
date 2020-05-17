@@ -65,7 +65,6 @@ exports.accountActivation = (req, res) => {
       const { name, email, password } = jwt.decode(Token);
 
       const user = new User({ name, email, password });
-      console.log(user);
       user.save((err, user) => {
         if (err) {
           console.log("SAVE USER IN ACCOUNT ACTIVATION ERROR", err);
@@ -73,7 +72,6 @@ exports.accountActivation = (req, res) => {
             error: "Error saving user in database. Try signup again",
           });
         }
-        console.log("user", user);
         return res.json({
           message: "Signup success. Please signin.",
         });
@@ -99,11 +97,11 @@ exports.signin = (req, res) => {
         error: "Email and password do not match",
       });
     }
+    const { _id, name, email, role } = user;
 
-    const token = jwt.sign({ _id: user._id }, config.JWT_SECRET, {
+    const token = jwt.sign({ _id, name, email, role }, config.JWT_SECRET, {
       expiresIn: "2h",
     });
-    const { _id, name, email, role } = user;
 
     return res.json({
       token,

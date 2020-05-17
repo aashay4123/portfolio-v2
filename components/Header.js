@@ -12,8 +12,8 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-import { isAuth, signout } from "../components/helper";
-import Router from "next/router";
+import { signout } from "../components/helper";
+import { Router } from "../routes";
 
 const BsNavlink = (props) => {
   const { link, child } = props;
@@ -26,23 +26,24 @@ const BsNavlink = (props) => {
   );
 };
 
-const Example = (props) => {
+const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { className, auth } = props;
   const toggle = () => setIsOpen(!isOpen);
   let profile = null;
 
-  if (isAuth() && isAuth().role === "admin") {
+  if (auth.isAuthenticated && auth.user.role === "admin") {
     profile = <BsNavlink link="/admin" child="Profile" />;
   } else {
     profile = <BsNavlink link="/private" child="Profile" />;
   }
+
   return (
     <div>
       <Navbar
-        className="port-navbar port-default absolute"
+        className={`port-navbar port-nav-base absolute ${className}`}
         color="transparent"
-        light
+        dark
         expand="md"
       >
         <NavbarBrand className="port-navbar-brand" href="/">
@@ -56,7 +57,7 @@ const Example = (props) => {
             <BsNavlink link="/cv" child="CV" />
             <BsNavlink link="/about" child="about" />
 
-            {!isAuth() && (
+            {!auth.isAuthenticated && (
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle className="port-navbar-link" nav caret>
                   Auth
@@ -72,10 +73,10 @@ const Example = (props) => {
               </UncontrolledDropdown>
             )}
 
-            {isAuth() && (
+            {auth.isAuthenticated && (
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle className="port-navbar-link" nav caret>
-                  {isAuth().name}
+                  {auth.user.name}
                 </DropdownToggle>
                 <DropdownMenu className="dropdown" right>
                   <DropdownItem className="dropdown">{profile}</DropdownItem>
@@ -84,7 +85,7 @@ const Example = (props) => {
                       className="nav-link port-navbar-link nav-link port-navbar-link"
                       onClick={() => {
                         signout(() => {
-                          Router.push("/");
+                          Router.pushRoute("/");
                         });
                       }}
                     >
@@ -101,4 +102,4 @@ const Example = (props) => {
   );
 };
 
-export default Example;
+export default Header;

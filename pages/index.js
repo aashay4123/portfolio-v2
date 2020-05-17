@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import BaseLayout from "../Layout/Layout";
+import BaseLayout from "../components/Layout/Layout";
 import { Button, Container, Row, Col } from "reactstrap";
 import Typed from "react-typed";
-const Index = () => {
+const Index = (props) => {
   return (
-    <BaseLayout className="cover">
+    <BaseLayout className="cover" headerType="index" auth={props.auth}>
       <div className="main-section">
         <div className="background-image">
           <img src="/static/images/background-index.png" />

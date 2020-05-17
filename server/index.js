@@ -1,6 +1,7 @@
 const express = require("express");
 const compression = require("compression");
 const next = require("next");
+const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
@@ -13,6 +14,9 @@ const handle = routes.getRequestHandler(app);
 
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const bookRoutes = require("./routes/book");
+const portfolioRoutes = require("./routes/portfolio");
+const blogRoutes = require("./routes/blog");
 
 const secretData = [
   {
@@ -43,17 +47,14 @@ app
   .then(() => {
     const server = express();
     server.use(compression());
+    server.use(morgan("dev"));
     server.use(bodyParser.urlencoded({ extended: false }));
     server.use(bodyParser.json());
+
     server.use("/api/v1/auth", authRoutes, userRoutes);
-
-    server.get("/api/v1/test", (req, res) => {
-      return res.json(secretData);
-    });
-
-    server.get("*", (req, res) => {
-      return handle(req, res);
-    });
+    server.use("/api/v1/portfolios", portfolioRoutes);
+    server.use("/api/v1/blog", blogRoutes);
+    server.use("/api/v1/book", bookRoutes);
 
     server.use(function (err, req, res, next) {
       if (err.name === "UnauthorizedError") {
@@ -61,6 +62,10 @@ app
           .status(401)
           .send({ title: "Unauthorized", detail: "Unauthorized Access!" });
       }
+    });
+
+    server.get("*", (req, res) => {
+      return handle(req, res);
     });
 
     const PORT = process.env.PORT || 3000;

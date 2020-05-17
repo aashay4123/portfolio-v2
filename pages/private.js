@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../Layout/Layout";
+import Layout from "../components/Layout/Layout";
 import axios from "axios";
-import { isAuth, getcookie, signout, updateUser } from "../components/helper";
+import { getcookie, signout, updateUser } from "../components/helper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import config from "../server/config";
 import BaseWrapper from "../components/BaseWrapper";
+import { Router } from "../routes";
+import withAuth from "../components/hoc/withAuth";
+import { loadProfile } from "../actions";
 
-const Private = ({ history }) => {
+const Private = ({ auth }) => {
   const [values, setValues] = useState({
     role: "",
     name: "",
@@ -19,36 +22,20 @@ const Private = ({ history }) => {
   const token = getcookie("token");
 
   useEffect(() => {
-    loadProfile();
-  }, []);
-
-  const loadProfile = () => {
-    if (isAuth()) {
-      axios({
-        method: "GET",
-        url: `${config.NAMESPACE}/api/v1/auth/user/${isAuth()._id}`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+    loadProfile(auth, token)
+      .then((response) => {
+        const { role, name, email } = response;
+        setValues({ ...values, role, name, email });
       })
-        .then((response) => {
-          console.log("PRIVATE PROFILE UPDATE", response);
-          const { role, name, email } = response.data;
-          setValues({ ...values, role, name, email });
-        })
-        .catch((error) => {
-          console.log(
-            "PRIVATE PROFILE UPDATE ERROR",
-            error.response.data.error
-          );
-          if (error.response.status === 401) {
-            signout(() => {
-              history.push("/");
-            });
-          }
-        });
-    }
-  };
+      .catch((error) => {
+        console.log("PRIVATE PROFILE UPDATE ERROR", error.response.data.error);
+        if (error.response.status === 401) {
+          signout(() => {
+            Router.pushRoute("/");
+          });
+        }
+      });
+  }, []);
 
   const { role, name, email, password, buttonText } = values;
 
@@ -68,7 +55,6 @@ const Private = ({ history }) => {
       data: { name, password },
     })
       .then((response) => {
-        console.log("PRIVATE PROFILE UPDATE SUCCESS", response);
         updateUser(response, () => {
           setValues({ ...values, buttonText: "Submitted" });
           toast.success("Profile updated successfully");
@@ -131,11 +117,10 @@ const Private = ({ history }) => {
   );
 
   return (
-    <Layout>
-      <BaseWrapper>
+    <Layout auth={auth}>
+      <BaseWrapper title="Private">
         <div className="col-md-6 offset-md-3">
           <ToastContainer />
-          <h1 className="pt-5 text-center">Private</h1>
           <p className="lead text-center">Profile update</p>
           {updateForm()}
         </div>
@@ -144,4 +129,4 @@ const Private = ({ history }) => {
   );
 };
 
-export default Private;
+export default withAuth("subscriber")(Private);

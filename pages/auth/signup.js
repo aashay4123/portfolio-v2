@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Router from "next/router";
-import Layout from "../../Layout/Layout";
+import { Router } from "../../routes";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
-import { isAuth } from "../../components/helper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import config from "../../server/config";
 import BaseWrapper from "../../components/BaseWrapper";
 
-const Signup = () => {
+const Signup = (props) => {
+  console.log("signup", props);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -83,11 +83,11 @@ const Signup = () => {
     </form>
   );
   return (
-    <Layout>
+    <Layout auth={props.auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />
-          {isAuth() ? Router.push("/") : null}
+          {props.auth.isAuthenticateed ? Router.pushRoute("/") : null}
           <h1 className="p-5 text-center">Signup</h1>
           {signupForm()}
         </div>

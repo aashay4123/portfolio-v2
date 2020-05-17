@@ -1,4 +1,6 @@
 import cookie from "js-cookie";
+import jwt from "jsonwebtoken";
+import { Router } from "../routes";
 
 //set in cookie
 export const setcookie = (key, value) => {
@@ -38,25 +40,13 @@ export const removeLocalStorage = (key, value) => {
 
 //store token and user data in storage
 export const authenticate = (response, next) => {
-  console.log("authenticate user response", response);
   setcookie("token", response.data.token);
   setLocalStorage("user", response.data.user);
   next();
 };
 
 //get data from localstorage
-export const isAuth = () => {
-  if (typeof window !== "undefined") {
-    const cookiecheck = getcookie("token");
-    if (cookiecheck) {
-      if (localStorage.getItem("user")) {
-        return JSON.parse(localStorage.getItem("user"));
-      } else {
-        return false;
-      }
-    }
-  }
-};
+
 // signout
 export const signout = (next) => {
   removecookie("token");
@@ -65,7 +55,56 @@ export const signout = (next) => {
 };
 
 export const updateUser = (response, next) => {
-  console.log("Update user response", response);
   setLocalStorage("user", response.data);
   next();
+};
+
+export const isAuth = () => {
+  if (typeof window !== "undefined") {
+    let cookiecheck = getcookie("token");
+    let data = jwt.decode(cookiecheck);
+    if (cookiecheck) {
+      let current_time = new Date().getTime() / 1000;
+      if (current_time > data.exp) {
+        signout(() => {
+          Router.pushRoute("/");
+        });
+      }
+      if (localStorage.getItem("user")) {
+        return JSON.parse(localStorage.getItem("user"));
+      } else {
+        return false;
+      }
+    }
+  }
+};
+
+export const serverAuth = async (req) => {
+  if (req.headers.cookie) {
+    let token = getCookieFromReq(req);
+    let data = jwt.decode(token);
+    let current_time = new Date().getTime() / 1000;
+    if (!data || current_time > data.exp) {
+      return false;
+    } else {
+      let user = {
+        _id: data._id,
+        name: data.name,
+        email: data.email,
+        role: data.role,
+      };
+      return user;
+    }
+  }
+  return undefined;
+};
+
+export const getCookieFromReq = (req) => {
+  let cookie = req.headers.cookie
+    .split(";")
+    .find((c) => c.trim().startsWith(`token=`));
+  if (!cookie) {
+    return undefined;
+  }
+  return cookie.split("=")[1];
 };
