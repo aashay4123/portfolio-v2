@@ -1,16 +1,16 @@
 @import "./shared/colors";
-// @import './shared/mixins';
+@import "./shared/mixins";
 
 // // PAGES
 @import "./index";
 @import "./portfolios";
-// @import "./blogs";
-// @import "./about";
-// @import "./cv";
+@import "./blogs";
+@import "./about";
+@import "./cv";
 
 // // COMPONENTS
 @import "./header";
-// @import "./slate-editor";
+@import "./slate-editor";
 @import "./shared/fonts";
 @import "./index";
 
@@ -21,9 +21,9 @@ body {
   font-family: "Montserrat", "Helvetica";
 }
 
-// .clickable {
-//   cursor: pointer;
-// }
+.clickable {
+  cursor: pointer;
+}
 
 .self-typed {
   font-size: 31px;

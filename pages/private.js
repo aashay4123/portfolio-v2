@@ -118,7 +118,7 @@ const Private = ({ auth }) => {
 
   return (
     <Layout auth={auth}>
-      <BaseWrapper title="Private">
+      <BaseWrapper title={auth.user.role}>
         <div className="col-md-6 offset-md-3">
           <ToastContainer />
           <p className="lead text-center">Profile update</p>

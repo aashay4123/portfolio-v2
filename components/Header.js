@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ActiveLink from "./ActiveLink";
 import React, { useState } from "react";
 import {
   Collapse,
@@ -17,12 +18,11 @@ import { Router } from "../routes";
 
 const BsNavlink = (props) => {
   const { link, child } = props;
+  const className = props.className || "";
   return (
-    <NavItem className="port-navbar-item">
-      <Link href={link}>
-        <a className="nav-link port-navbar-link"> {child} </a>
-      </Link>
-    </NavItem>
+    <ActiveLink activeClassName="active" href={link}>
+      <a className={`${className} nav-link port-navbar-link`}> {child} </a>
+    </ActiveLink>
   );
 };
 
@@ -31,17 +31,29 @@ const Header = (props) => {
   const { className, auth } = props;
   const toggle = () => setIsOpen(!isOpen);
   let profile = null;
-
+  const menuclass = isOpen ? "menu-open" : "menu-close";
   if (auth.isAuthenticated && auth.user.role === "admin") {
-    profile = <BsNavlink link="/admin" child="Profile" />;
+    profile = (
+      <BsNavlink
+        className={`port-dropdown-item ${menuclass}`}
+        link="/admin"
+        child="Profile"
+      />
+    );
   } else {
-    profile = <BsNavlink link="/private" child="Profile" />;
+    profile = (
+      <BsNavlink
+        className={`port-dropdown-item ${menuclass}`}
+        link="/private"
+        child="Profile"
+      />
+    );
   }
 
   return (
     <div>
       <Navbar
-        className={`port-navbar port-nav-base absolute ${className}`}
+        className={`port-navbar port-nav-base absolute ${className} ${menuclass}`}
         color="transparent"
         dark
         expand="md"
@@ -52,37 +64,72 @@ const Header = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <BsNavlink link="/portfolios" child="portfolio" />
-            <BsNavlink link="/blogs" child="blogs" />
-            <BsNavlink link="/cv" child="CV" />
-            <BsNavlink link="/about" child="about" />
+            <NavItem className="port-navbar-item">
+              <BsNavlink link="/portfolios" child="portfolio" />
+            </NavItem>
+
+            <NavItem className="port-navbar-item">
+              <BsNavlink link="/blogs" child="blogs" />
+            </NavItem>
+
+            <NavItem className="port-navbar-item">
+              <BsNavlink link="/cv" child="CV" />
+            </NavItem>
+
+            <NavItem className="port-navbar-item">
+              <BsNavlink link="/about" child="about" />
+            </NavItem>
 
             {!auth.isAuthenticated && (
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle className="port-navbar-link" nav caret>
+              <UncontrolledDropdown
+                nav
+                inNavbar
+                className="port-navbar-link port-dropdown-menu"
+              >
+                <DropdownToggle className="port-dropdown-toggle" nav caret>
                   Auth
                 </DropdownToggle>
-                <DropdownMenu className="dropdown" right>
-                  <DropdownItem className="dropdown">
-                    <BsNavlink link="/auth/signin" child="signin" />
+                <DropdownMenu className={`${menuclass}`} right>
+                  <DropdownItem>
+                    <BsNavlink
+                      className={`port-dropdown-item ${menuclass}`}
+                      link="/auth/signin"
+                      child="signin"
+                    />
                   </DropdownItem>
-                  <DropdownItem className="dropdown">
-                    <BsNavlink link="/auth/signup" child="signup" />
+                  <DropdownItem>
+                    <BsNavlink
+                      className={`port-dropdown-item ${menuclass}`}
+                      link="/auth/signup"
+                      child="signup"
+                    />
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             )}
 
             {auth.isAuthenticated && (
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle className="port-navbar-link" nav caret>
+              <UncontrolledDropdown
+                nav
+                inNavbar
+                className="port-navbar-link port-dropdown-menu"
+              >
+                <DropdownToggle className="port-dropdown-toggle" nav caret>
                   {auth.user.name}
                 </DropdownToggle>
-                <DropdownMenu className="dropdown" right>
-                  <DropdownItem className="dropdown">{profile}</DropdownItem>
-                  <DropdownItem className="dropdown">
+                <DropdownMenu right className={`${menuclass}`}>
+                  <DropdownItem>{profile}</DropdownItem>
+                  <DropdownItem>
+                    <BsNavlink
+                      className={`port-dropdown-item ${menuclass}`}
+                      link="/blogs/dashboard"
+                      child="blogs"
+                    />
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
                     <span
-                      className="nav-link port-navbar-link nav-link port-navbar-link"
+                      className={`nav-link port-dropdown-item port-navbar-link nav-link port-navbar-link ${menuclass}`}
                       onClick={() => {
                         signout(() => {
                           Router.pushRoute("/");

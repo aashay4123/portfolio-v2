@@ -9,16 +9,16 @@ const {
 
 router.get("", blogCtrl.getBlogs);
 
-router.get("/me", requireSignin, adminMiddleware, blogCtrl.getUserBlogs);
+router.get("/me", requireSignin, blogCtrl.getUserBlogs);
 
 router.get("/:id", blogCtrl.getBlogById);
 
 router.get("/s/:slug", blogCtrl.getBlogBySlug);
 
-router.post("", requireSignin, adminMiddleware, blogCtrl.createBlog);
+router.post("", requireSignin, blogCtrl.createBlog);
 
-router.patch("/:id", requireSignin, adminMiddleware, blogCtrl.updateBlog);
+router.patch("/:id", requireSignin, blogCtrl.updateBlog);
 
-router.delete("/:id", requireSignin, adminMiddleware, blogCtrl.deleteBlog);
+router.delete("/:id", requireSignin, blogCtrl.deleteBlog);
 
 module.exports = router;

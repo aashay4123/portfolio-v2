@@ -1,0 +1,3 @@
+redirect to last page you were on after signin
+add userblog above logout
+delete any blog admin right only

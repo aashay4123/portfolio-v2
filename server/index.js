@@ -53,7 +53,7 @@ app
 
     server.use("/api/v1/auth", authRoutes, userRoutes);
     server.use("/api/v1/portfolios", portfolioRoutes);
-    server.use("/api/v1/blog", blogRoutes);
+    server.use("/api/v1/blogs", blogRoutes);
     server.use("/api/v1/book", bookRoutes);
 
     server.use(function (err, req, res, next) {

@@ -14,13 +14,14 @@ export default (role) => (Component) =>
     renderProtectedPage() {
       const { isAuthenticated, user } = this.props.auth;
       const userRole = user && user.role;
-      let isAuthorized = false;
+      let isAuthorized;
+      {
+        user.role === "admin" ? (isAuthorized = true) : (isAuthorized = false);
+      }
       if (role) {
         if (userRole && userRole === role) {
           isAuthorized = true;
         }
-      } else {
-        isAuthorized = false;
       }
 
       if (!isAuthenticated) {

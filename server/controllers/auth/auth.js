@@ -2,10 +2,7 @@ const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
 const _ = require("lodash");
 const config = require("../../config");
-
-var api_key = config.MAILGUN_API_KEY;
-var domain = config.MAILGUN_API_DOMAIN;
-var mailgun = require("mailgun-js")({ apiKey: api_key, domain: domain });
+const { sendEmail } = require("../../services/sendMail");
 
 exports.signup = (req, res) => {
   const { name, email, password } = req.body;
@@ -23,7 +20,7 @@ exports.signup = (req, res) => {
     );
 
     const emailData = {
-      from: config.EMAIL_FROM,
+      from: config.EMAIL_USERID,
       to: email,
       subject: `Account activation link`,
       text: `
@@ -34,19 +31,7 @@ exports.signup = (req, res) => {
                 <p>${config.NAMESPACE}</p>
             `,
     };
-    mailgun.messages().send(emailData, function (error, body) {
-      if (error) {
-        console.log("SIGNUP EMAIL SENT ERROR", error);
-        return res.json({
-          message: error,
-        });
-      }
-      console.log("SIGNUP EMAIL SENT", body);
-      return res.json({
-        message: `Email has been sent to ${name}. Follow the instruction to activate your account`,
-      });
-    });
-    // add smtp
+    sendEmail(emailData);
   });
 };
 

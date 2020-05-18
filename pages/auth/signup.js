@@ -8,7 +8,6 @@ import config from "../../server/config";
 import BaseWrapper from "../../components/BaseWrapper";
 
 const Signup = (props) => {
-  console.log("signup", props);
   const [values, setValues] = useState({
     name: "",
     email: "",
