@@ -43,7 +43,7 @@ const Signin = (props, { router }) => {
     setValues({ ...values, buttonText: "submitting" });
     axios({
       method: "POST",
-      url: `${config.NAMESPACE}/api/v1/auth/signin`,
+      url: `${process.env.BASE_URL}/api/v1/auth/signin`,
       data: { email, password },
     })
       .then((response) => {

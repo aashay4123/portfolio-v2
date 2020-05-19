@@ -49,7 +49,7 @@ const Admin = (props) => {
     setValues({ ...values, buttonText: "Submitting" });
     axios({
       method: "PUT",
-      url: `${config.NAMESPACE}/api/v1/auth/admin/update`,
+      url: `${process.env.BASE_URL}/api/v1/auth/admin/update`,
       headers: {
         Authorization: `Bearer ${token}`,
       },

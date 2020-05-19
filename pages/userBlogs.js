@@ -25,7 +25,7 @@ class UserBlogs extends React.Component {
   changeBlogStatus(status, blogId) {
     updateBlog({ status }, blogId)
       .then(() => {
-        Router.pushRoute("/blogs/dashboard");
+        Router.pushRoute("/userBlogs");
       })
       .catch((err) => {
         console.error(err.message);
@@ -43,7 +43,7 @@ class UserBlogs extends React.Component {
   deleteBlog(blogId) {
     deleteBlog(blogId)
       .then((status) => {
-        Router.pushRoute("/blogs/dashboard");
+        Router.pushRoute("/userBlogs");
       })
       .catch((err) => console.error(err.message));
   }

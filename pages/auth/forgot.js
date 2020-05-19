@@ -22,7 +22,7 @@ const Forgot = (props) => {
     setValues({ ...values, buttonText: "Requesting password" });
     axios({
       method: "PUT",
-      url: `${config.NAMESPACE}/api/v1/auth/forgot-password`,
+      url: `${process.env.BASE_URL}/api/v1/auth/forgot-password`,
       data: { email },
     })
       .then((response) => {

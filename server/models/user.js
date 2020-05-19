@@ -31,7 +31,6 @@ const userSchema = new mongoose.Schema(
     },
     assdasds: {
       type: String,
-      required: true,
     },
   },
   { timestamps: true }

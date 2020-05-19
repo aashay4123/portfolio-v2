@@ -35,7 +35,7 @@ class Activate extends React.Component {
     const { Token } = this.state;
     axios({
       method: "POST",
-      url: `${config.NAMESPACE}/api/v1/auth/account_activate`,
+      url: `${process.env.BASE_URL}/api/v1/auth/account_activate`,
       data: { Token },
     })
       .then((response) => {

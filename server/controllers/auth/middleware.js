@@ -1,7 +1,6 @@
 const expressJwt = require("express-jwt");
 const config = require("../../config");
 const User = require("../../models/user");
-
 exports.requireSignin = expressJwt({
   secret: config.JWT_SECRET,
 });

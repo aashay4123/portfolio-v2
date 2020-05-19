@@ -124,7 +124,7 @@ const Header = (props) => {
                     {auth.admin && (
                       <BsNavlink
                         className={`port-dropdown-item ${menuclass}`}
-                        link="/blogs/dashboard"
+                        link="/userBlogs"
                         child="blogs"
                       />
                     )}

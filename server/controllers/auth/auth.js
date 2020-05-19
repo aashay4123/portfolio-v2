@@ -25,10 +25,10 @@ exports.signup = (req, res) => {
       subject: `Account activation link`,
       text: `
                 <h1>Please use the following link to activate your account</h1>
-                <p>${config.NAMESPACE}/auth/activate/${token}</p>
+                <p>${config.BASE_URL}/auth/activate/${token}</p>
                 <hr />
                 <p>This email may contain sensetive information</p>
-                <p>${config.NAMESPACE}</p>
+                <p>${config.BASE_URL}</p>
             `,
     };
     sendEmail(emailData)
@@ -129,10 +129,10 @@ exports.forgotPassword = (req, res, next) => {
       subject: `Password reset link`,
       text: `
                 <h1>Please use the following link to Reset your Password</h1>
-                <p>${config.NAMESPACE}/auth/reset/${token}</p>
+                <p>${config.BASE_URL}/auth/reset/${token}</p>
                 <hr />
                 <p>This email may contain sensetive information</p>
-                <p>${config.NAMESPACE}</p>
+                <p>${config.BASE_URL}</p>
             `,
     };
     return user.updateOne({ resetPasswordLink: token }, (err, success) => {

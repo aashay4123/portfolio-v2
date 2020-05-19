@@ -15,7 +15,6 @@ const {
   forgotPassword,
   resetPassword,
 } = require("../controllers/auth/auth");
-const { googleLogin, facebookLogin } = require("../services/services");
 
 router.post("/signup", userSignupValidator, runValidation, signup);
 router.post("/account_activate", accountActivation);
@@ -34,6 +33,4 @@ router.put(
   runValidation,
   resetPassword
 );
-router.post("/google-login", googleLogin);
-router.post("/facebook-login", facebookLogin);
 module.exports = router;

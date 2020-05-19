@@ -42,7 +42,7 @@ class Reset extends React.Component {
     const { newPassword, token } = this.state;
     axios({
       method: "PUT",
-      url: `${config.NAMESPACE}/api/v1/auth/reset-password`,
+      url: `${process.env.BASE_URL}/api/v1/auth/reset-password`,
       data: { newPassword, resetPasswordLink: token },
     })
       .then((response) => {

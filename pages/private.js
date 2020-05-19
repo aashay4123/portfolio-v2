@@ -48,7 +48,7 @@ const Private = ({ auth }) => {
     setValues({ ...values, buttonText: "Submitting" });
     axios({
       method: "PUT",
-      url: `${config.NAMESPACE}/api/v1/auth/user/update`,
+      url: `${process.env.BASE_URL}/api/v1/auth/user/update`,
       headers: {
         Authorization: `Bearer ${token}`,
       },

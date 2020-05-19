@@ -17,7 +17,7 @@ class Portfolios extends React.Component {
     return { portfolios };
   }
 
-  deleteWarning(portfolioId) {
+  deleteWarning(portfolioId, e) {
     e.stopPropagation();
     const isConf = confirm("Are you sure you want to delete ??");
     if (isConf) {

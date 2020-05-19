@@ -25,7 +25,7 @@ const Signup = (props) => {
     setValues({ ...values, buttonText: "submitting" });
     axios({
       method: "POST",
-      url: `${config.NAMESPACE}/api/v1/auth/signup`,
+      url: `${process.env.BASE_URL}/api/v1/auth/signup`,
       data: { name, email, password },
     })
       .then((response) => {
