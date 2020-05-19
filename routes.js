@@ -7,6 +7,4 @@ module.exports = routes()
   .add("userBlogs", "/blogs/dashboard")
   .add("blogEditor", "/blogs/new")
   .add("blogDetail", "/blogs/:slug")
-  .add("blogEditorUpdate", "/blogs/:id/edit")
-  .add("admin", "/admin")
-  .add("private", "/private");
+  .add("blogEditorUpdate", "/blogs/:id/edit");

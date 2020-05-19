@@ -1,6 +1,7 @@
 const express = require("express");
 const compression = require("compression");
 const next = require("next");
+const path = require("path");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -18,16 +19,12 @@ const bookRoutes = require("./routes/book");
 const portfolioRoutes = require("./routes/portfolio");
 const blogRoutes = require("./routes/blog");
 
-const secretData = [
-  {
-    title: "SecretData 1",
-    description: "Plans how to build spaceship",
+const robotsOptions = {
+  root: path.join(__dirname, "../public/static"),
+  headers: {
+    "Content-Type": "text/plain;charset=UTF-8",
   },
-  {
-    title: "SecretData 2",
-    description: "My secret passwords",
-  },
-];
+};
 
 mongoose
   .connect(config.DB_URI, {
@@ -62,6 +59,9 @@ app
           .status(401)
           .send({ title: "Unauthorized", detail: "Unauthorized Access!" });
       }
+    });
+    server.get("/robots.txt", (req, res) => {
+      return res.status(200).sendFile("robots.txt", robotsOptions);
     });
 
     server.get("*", (req, res) => {

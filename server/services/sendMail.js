@@ -13,10 +13,7 @@ exports.sendEmail = (emailData) => {
     },
   });
 
-  return transporter
-    .sendMail(emailData)
-    .then((info) => console.log(`Message sent: ${info.response}`))
-    .catch((err) => console.log(`Problem sending email: ${err}`));
+  return transporter.sendMail(emailData);
 };
 
 // var api_key = config.MAILGUN_API_KEY;

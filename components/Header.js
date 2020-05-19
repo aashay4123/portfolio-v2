@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ActiveLink from "./ActiveLink";
 import React, { useState } from "react";
 import {
@@ -19,6 +18,7 @@ import { Router } from "../routes";
 const BsNavlink = (props) => {
   const { link, child } = props;
   const className = props.className || "";
+
   return (
     <ActiveLink activeClassName="active" href={link}>
       <a className={`${className} nav-link port-navbar-link`}> {child} </a>
@@ -32,6 +32,7 @@ const Header = (props) => {
   const toggle = () => setIsOpen(!isOpen);
   let profile = null;
   const menuclass = isOpen ? "menu-open" : "menu-close";
+
   if (auth.isAuthenticated && auth.user.role === "admin") {
     profile = (
       <BsNavlink
@@ -84,7 +85,7 @@ const Header = (props) => {
               <UncontrolledDropdown
                 nav
                 inNavbar
-                className="port-navbar-link port-dropdown-menu"
+                className={`port-navbar-link port-dropdown-menu ${menuclass}`}
               >
                 <DropdownToggle className="port-dropdown-toggle" nav caret>
                   Auth
@@ -112,19 +113,21 @@ const Header = (props) => {
               <UncontrolledDropdown
                 nav
                 inNavbar
-                className="port-navbar-link port-dropdown-menu"
+                className={`port-navbar-link port-dropdown-menu ${menuclass}`}
               >
-                <DropdownToggle className="port-dropdown-toggle" nav caret>
+                <DropdownToggle className={`port-dropdown-toggle`} nav caret>
                   {auth.user.name}
                 </DropdownToggle>
                 <DropdownMenu right className={`${menuclass}`}>
                   <DropdownItem>{profile}</DropdownItem>
                   <DropdownItem>
-                    <BsNavlink
-                      className={`port-dropdown-item ${menuclass}`}
-                      link="/blogs/dashboard"
-                      child="blogs"
-                    />
+                    {auth.admin && (
+                      <BsNavlink
+                        className={`port-dropdown-item ${menuclass}`}
+                        link="/blogs/dashboard"
+                        child="blogs"
+                      />
+                    )}
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>

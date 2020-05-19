@@ -37,10 +37,12 @@ const Signup = (props) => {
           success: true,
           buttonText: "submitted",
         });
+        console.log(response.data.message);
         toast.success(response.data.message);
       })
       .catch((error) => {
         setValues({ ...values, buttonText: "submit" });
+        console.log(error);
         toast.error(error.response.data.error);
       });
   };
@@ -82,7 +84,7 @@ const Signup = (props) => {
     </form>
   );
   return (
-    <Layout auth={props.auth}>
+    <Layout title="signup page" auth={props.auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />

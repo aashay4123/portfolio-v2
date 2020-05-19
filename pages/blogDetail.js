@@ -1,6 +1,7 @@
 import React from "react";
 import BaseLayout from "../components/Layout/Layout";
 import BasePage from "../components/BaseWrapper";
+import withAuth from "../components/hoc/withAuth";
 
 import { Row, Col } from "reactstrap";
 
@@ -37,4 +38,4 @@ class BlogDetail extends React.Component {
   }
 }
 
-export default BlogDetail;
+export default withAuth("admin")(BlogDetail);

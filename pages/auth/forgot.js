@@ -26,7 +26,7 @@ const Forgot = (props) => {
       data: { email },
     })
       .then((response) => {
-        toast.success(response.data.success);
+        toast.success(response.data.message);
         setValues({ ...values, buttonText: "Requested" });
       })
       .catch((error) => {
@@ -56,7 +56,7 @@ const Forgot = (props) => {
     </form>
   );
   return (
-    <Layout auth={props.auth}>
+    <Layout title="Forgot password" auth={props.auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />

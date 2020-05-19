@@ -47,7 +47,7 @@ class Reset extends React.Component {
     })
       .then((response) => {
         console.log("Reset PASSWORD SUCCESS", response);
-        toast.success(response.data.success);
+        toast.success(response.data.message);
         this.setState({ buttonText: "Reset Completed" });
         Router.pushRoute("/");
       })
@@ -89,7 +89,7 @@ class Reset extends React.Component {
 
   render() {
     return (
-      <Layout auth={this.props.auth}>
+      <Layout title="reset Token" auth={this.props.auth}>
         <BaseWrapper>
           <div className="col-md-6 offset-med-3">
             <ToastContainer />

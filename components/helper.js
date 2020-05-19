@@ -1,7 +1,7 @@
 import cookie from "js-cookie";
 import jwt from "jsonwebtoken";
 import { Router } from "../routes";
-
+import { getUser } from "../actions";
 //set in cookie
 export const setcookie = (key, value) => {
   if (typeof window !== "undefined") {
@@ -87,12 +87,13 @@ export const serverAuth = async (req) => {
     if (!data || current_time > data.exp) {
       return false;
     } else {
-      let user = {
-        _id: data._id,
-        name: data.name,
-        email: data.email,
-        role: data.role,
-      };
+      const id = data._id;
+      let user = {};
+      try {
+        user = await getUser(req, id);
+      } catch (err) {
+        console.error(err);
+      }
       return user;
     }
   }

@@ -58,6 +58,7 @@ const Private = ({ auth }) => {
         updateUser(response, () => {
           setValues({ ...values, buttonText: "Submitted" });
           toast.success("Profile updated successfully");
+          Router.pushRoute("/private");
         });
       })
       .catch((error) => {
@@ -118,7 +119,7 @@ const Private = ({ auth }) => {
 
   return (
     <Layout auth={auth}>
-      <BaseWrapper title={auth.user.role}>
+      <BaseWrapper title="Profile">
         <div className="col-md-6 offset-md-3">
           <ToastContainer />
           <p className="lead text-center">Profile update</p>

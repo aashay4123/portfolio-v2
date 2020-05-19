@@ -8,7 +8,7 @@ const {
 } = require("../controllers/auth/middleware");
 
 router.get("/user/:id", requireSignin, read);
-router.put("/admin/update", requireSignin, update);
+router.put("/user/update", requireSignin, update);
 router.put("/admin/update", requireSignin, adminMiddleware, update);
 
 module.exports = router;

@@ -8,10 +8,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import config from "../../server/config";
 import BaseWrapper from "../../components/BaseWrapper";
+import { withRouter } from "next/router";
+
 // import Facebook from "../services/facebook";
 // import Google from "../services/google";
 
-const Signin = (props) => {
+const Signin = (props, { router }) => {
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -84,7 +86,7 @@ const Signin = (props) => {
   );
 
   return (
-    <Layout auth={auth}>
+    <Layout title="signin page" auth={auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />
@@ -104,4 +106,4 @@ const Signin = (props) => {
   );
 };
 
-export default Signin;
+export default withRouter(Signin);

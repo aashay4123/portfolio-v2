@@ -12,11 +12,11 @@ export default (role) => (Component) =>
     }
 
     renderProtectedPage() {
-      const { isAuthenticated, user } = this.props.auth;
+      const { isAuthenticated, user, admin } = this.props.auth;
       const userRole = user && user.role;
       let isAuthorized;
       {
-        user.role === "admin" ? (isAuthorized = true) : (isAuthorized = false);
+        admin ? (isAuthorized = true) : (isAuthorized = false);
       }
       if (role) {
         if (userRole && userRole === role) {

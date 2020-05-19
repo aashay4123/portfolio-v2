@@ -59,6 +59,7 @@ const Admin = (props) => {
         updateUser(response, () => {
           setValues({ ...values, buttonText: "Submitted" });
           toast.success("Profile updated successfully");
+          Router.pushRoute("/admin");
         });
       })
       .catch((error) => {

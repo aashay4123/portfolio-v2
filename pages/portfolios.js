@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Layout from "../components/Layout/Layout";
 import BaseWrapper from "../components/BaseWrapper";
 import { Router } from "../routes";
-import { getPortfolios, getPortfolioById, deletePortfolio } from "../actions";
+import { getPortfolios, deletePortfolio } from "../actions";
 import PortfolioCard from "../components/portfolios/PortfolioCard";
 import { Row, Col, Button } from "reactstrap";
 
@@ -69,11 +69,11 @@ class Portfolios extends React.Component {
   render() {
     const { portfolios, auth } = this.props;
     return (
-      <Layout auth={auth}>
+      <Layout title="Aashay Phirke - Know more about my experience" auth={auth}>
         <BaseWrapper className="portfolio-page" title="Portfolios">
           {auth.admin && (
             <Button
-              onClick={() => Router.pushRoute("/portfolioNew")}
+              onClick={() => Router.pushRoute("/portfolios/new")}
               color="success"
               className="create-port-btn"
             >

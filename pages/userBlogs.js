@@ -142,4 +142,4 @@ class UserBlogs extends React.Component {
   }
 }
 
-export default withAuth("subscriber")(UserBlogs);
+export default withAuth("admin")(UserBlogs);

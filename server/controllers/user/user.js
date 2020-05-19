@@ -11,6 +11,7 @@ exports.read = (req, res) => {
     user.hashed_password = undefined;
     user.salt = undefined;
     user.__v = undefined;
+    user.assdasds = undefined;
     res.json(user);
   });
 };
@@ -49,6 +50,8 @@ exports.update = (req, res) => {
       }
       updatedUser.hashed_password = undefined;
       updatedUser.salt = undefined;
+      updatedUser.assdasds = undefined;
+      updatedUser.__v = undefined;
       res.json(updatedUser);
     });
   });

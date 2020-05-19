@@ -28,6 +28,7 @@ const rejectPromise = (resError) => {
   return Promise.reject(error);
 };
 ///////////////////////////////////////////////////////////////////
+
 export const loadProfile = async (auth, token) => {
   if (auth.isAuthenticated) {
     return await axiosInstance
@@ -40,8 +41,8 @@ export const loadProfile = async (auth, token) => {
   }
 };
 
-export const getSecretData = async (req) => {
-  const url = "/secret";
+export const getUser = async (req, id) => {
+  const url = `/auth/user/${id}`;
 
   return await axiosInstance
     .get(url, setAuthHeader(req))

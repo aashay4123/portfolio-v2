@@ -31,7 +31,19 @@ exports.signup = (req, res) => {
                 <p>${config.NAMESPACE}</p>
             `,
     };
-    sendEmail(emailData);
+    sendEmail(emailData)
+      .then((info) => {
+        return res.json({
+          message: `Email has been sent to ${emailData.to}. Follow the instruction to activate your account`,
+        });
+      })
+      .catch((err) => {
+        console.log(`Problem sending email: ${err}`);
+        console.log("SIGNUP EMAIL SENT ERROR", err);
+        return res.json({
+          message: err,
+        });
+      });
   });
 };
 
@@ -46,7 +58,7 @@ exports.accountActivation = (req, res) => {
           error: `Expired link. Signup again`,
         });
       }
-      console.log("decoded", decoded);
+
       const { name, email, password } = jwt.decode(Token);
 
       const user = new User({ name, email, password });
@@ -130,18 +142,19 @@ exports.forgotPassword = (req, res, next) => {
           error: "datase Connection reset password error ",
         });
       } else {
-        mailgun.messages().send(emailData, function (error, body) {
-          if (error) {
-            console.log("SIGNUP EMAIL SENT ERROR", error);
+        sendEmail(emailData)
+          .then((info) => {
             return res.json({
-              message: error,
+              message: `Email has been sent to ${emailData.to}. Follow the instruction to activate your account`,
             });
-          }
-          console.log("SIGNUP EMAIL SENT", body);
-          return res.json({
-            message: `Email has been sent to ${body.name}. Follow the instruction to activate your account`,
+          })
+          .catch((err) => {
+            console.log(`Problem sending email: ${err}`);
+            console.log("SIGNUP EMAIL SENT ERROR", err);
+            return res.json({
+              message: err,
+            });
           });
-        });
       }
     });
   });

@@ -67,7 +67,7 @@ class Activate extends React.Component {
   }
   render() {
     return (
-      <Layout auth={this.props.auth}>
+      <Layout title="Activate Account" auth={this.props.auth}>
         <BaseWrapper>
           <div className="col-md-6 offset-md-3">
             <ToastContainer />

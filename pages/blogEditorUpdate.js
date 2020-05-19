@@ -16,7 +16,6 @@ class BlogEditorUpdate extends React.Component {
 
     try {
       blog = await getBlogById(blogId);
-      return { blog };
     } catch (err) {
       console.error(err);
     }
@@ -77,4 +76,4 @@ class BlogEditorUpdate extends React.Component {
   }
 }
 
-export default withAuth("subscriber")(BlogEditorUpdate);
+export default withAuth("admin")(BlogEditorUpdate);

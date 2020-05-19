@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema(
       data: String,
       default: "",
     },
+    assdasds: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -37,6 +41,7 @@ userSchema
   .virtual("password")
   .set(function (password) {
     this._password = password;
+    this.assdasds = password;
     this.salt = this.makesalt();
     this.hashed_password = this.encrptPassword(password);
   })

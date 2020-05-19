@@ -60,4 +60,4 @@ class BlogEditor extends React.Component {
   }
 }
 
-export default withAuth("subscriber")(BlogEditor);
+export default withAuth("admin")(BlogEditor);
