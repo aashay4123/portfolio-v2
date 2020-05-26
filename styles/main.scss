@@ -13,6 +13,7 @@
 @import "./slate-editor";
 @import "./index";
 @import "./footers";
+
 html,
 body {
   height: 100%;
@@ -42,16 +43,23 @@ body {
 
 .base-page {
   padding: 150px 0 100px 0;
-  color: black;
-  background-color: #ecedee;
+  color: white;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(#1925d8, 0.62) 0%,
+      rgba(#0b7a62, 0.62) 100%
+    ),
+    url("../public/static/images/test1.jpg ");
+  background-size: cover;
   min-height: 100vh;
 
   .page-header {
     .page-header-title {
       font-weight: 700;
-      color: black;
+      color: whitesmoke;
       display: inline-block;
       margin-bottom: 20px;
+      text-align: center;
     }
   }
 }

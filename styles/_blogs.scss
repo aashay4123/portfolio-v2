@@ -2,10 +2,17 @@
 
 .blog-listing-page {
   min-height: 100vh;
-  background-color: #ecedee;
 
   .blog-body {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(#ffffff, 0.55) 0%,
+      rgba(#ffffff, 0.55) 100%
+    ) !important;
+    opacity: 0.5;
+    background-color: whitesmoke !important;
     padding: 50px 0 0 0;
+    min-height: 60vh;
   }
 
   .post-preview {
@@ -141,6 +148,7 @@
 
 .blog-editor-page,
 .blog-detail-page {
+  background-image: none !important;
   @media only screen and (min-width: 991px) {
     .editor-wrapper {
       padding: 0 180px;

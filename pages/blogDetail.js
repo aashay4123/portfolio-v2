@@ -38,4 +38,4 @@ class BlogDetail extends React.Component {
   }
 }
 
-export default withAuth("admin")(BlogDetail);
+export default BlogDetail;

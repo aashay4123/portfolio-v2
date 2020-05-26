@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import config from "../../server/config";
 import BaseWrapper from "../../components/BaseWrapper";
 import { withRouter } from "next/router";
+import { Row, Col, Button } from "reactstrap";
 
 // import Facebook from "../services/facebook";
 // import Google from "../services/google";
@@ -21,6 +22,7 @@ const Signin = (props, { router }) => {
   });
   const { email, password, buttonText } = values;
   const auth = props.auth;
+
   const informParent = (response) => {
     authenticate(response, () => {
       setValues({
@@ -60,7 +62,7 @@ const Signin = (props, { router }) => {
   const signinForm = () => (
     <form>
       <div className="form-group">
-        <label className="text-muted">email</label>
+        <label>email</label>
         <input
           onChange={handleChange("email")}
           type="text"
@@ -69,7 +71,7 @@ const Signin = (props, { router }) => {
         />
       </div>
       <div className="form-group">
-        <label className="text-muted">password</label>
+        <label>password</label>
         <input
           onChange={handleChange("password")}
           type="password"
@@ -77,11 +79,14 @@ const Signin = (props, { router }) => {
           className="form-control"
         />
       </div>
-      <div>
-        <button className="btn btn-primary" onClick={clickSubmit}>
+      <Row>
+        <button className="btn btn-primary mr-5 ml-3" onClick={clickSubmit}>
           {buttonText}
         </button>
-      </div>
+        <Link href="/auth/signup">
+          <a className="btn btn-sm btn-success p-2"> create Account </a>
+        </Link>
+      </Row>
     </form>
   );
 
@@ -96,9 +101,12 @@ const Signin = (props, { router }) => {
           <Facebook informParent={informParent} /> */}
           <p className="lead text-center">OR</p>
           {signinForm()}
+
           <br />
           <Link href="/auth/forgot">
-            <a className="btn btn-sm btn-outline-danger"> Forgot Password </a>
+            <a className="btn btn-sm mt-4 btn-outline-danger">
+              Forgot Password
+            </a>
           </Link>
         </div>
       </BaseWrapper>

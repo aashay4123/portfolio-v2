@@ -16,6 +16,23 @@ const Index = (props) => {
         </div> */}
 
         <Container>
+          <div className="bg-video">
+            <video
+              className="bg-video__content"
+              autoPlay
+              loop
+              muted
+              data-reactid=".0.1.0.0"
+            >
+              <source
+                src="/static/vid/vid1.mp4"
+                data-reactid=".0.1.0.0.0"
+                type="video/mp4"
+              />
+              {/* <source src="img/video.webm" type="video/webm" /> */}
+              Your browser is not Supported
+            </video>
+          </div>
           <Row>
             <Col md="6">
               <div className="hero-section">
@@ -23,9 +40,6 @@ const Index = (props) => {
                   <div className="back">
                     <div className="hero-section-content">
                       <h2> Full Stack Web Developer </h2>
-                      <div className="hero-section-content-intro">
-                        Have a look at my portfolio.
-                      </div>
                     </div>
                     <img
                       alt="Aashay Phirke image"
@@ -63,7 +77,7 @@ const Index = (props) => {
                 cursorChar="|"
               />
               <div className="hero-welcome-bio">
-                <h2>Let's take a look on my work.</h2>
+                <h2>Have a look at my portfolio.</h2>
               </div>
             </Col>
           </Row>

@@ -50,7 +50,7 @@ const Signup = (props) => {
   const signupForm = () => (
     <form>
       <div className="form-group">
-        <label className="text-muted">Name</label>
+        <label>Name</label>
         <input
           onChange={handleChange("name")}
           type="text"
@@ -59,7 +59,7 @@ const Signup = (props) => {
         />
       </div>
       <div className="form-group">
-        <label className="text-muted">email</label>
+        <label>email</label>
         <input
           onChange={handleChange("email")}
           type="text"
@@ -68,7 +68,7 @@ const Signup = (props) => {
         />
       </div>
       <div className="form-group">
-        <label className="text-muted">password</label>
+        <label>password</label>
         <input
           onChange={handleChange("password")}
           type="password"

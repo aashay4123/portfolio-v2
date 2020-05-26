@@ -20,7 +20,7 @@ class About extends React.Component {
               </div>
             </Col>
             <Col md="6">
-              <div className="fadein">
+              <div className="fadein mt-sm">
                 <p>
                   My name is Aashay Phirke and I am software engineer and
                   freelance developer.
@@ -30,7 +30,6 @@ class About extends React.Component {
                   Telecommunication. I have been working on a wide range of
                   technologies and projects.
                 </p>
-                <p>Have a look at my resume to know more...</p>
               </div>
             </Col>
           </Row>

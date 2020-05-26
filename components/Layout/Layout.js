@@ -30,14 +30,9 @@ const Layout = (props) => {
           property="og:description"
           content="My name is Aashay Phirke and I am an software and hardware engineer and freelance developer."
         />
-        {/* {cannonical && (
-          <link
-            rel="cannonical"
-            href={`${process.env.BASE_URL}${cannonical}`}
-          />
-        )} */}
         <link rel="icon" type="image/ico" href="/static/favicon.ico" />
       </Head>
+
       <div className="layout-container">
         <Header className={`port-nav-${headerType}`} auth={auth} />
         <main className={`cover ${className}`}>
