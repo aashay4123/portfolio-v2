@@ -89,7 +89,7 @@ const Signup = (props) => {
         <div className="col-md-6 offset-med-3">
           <ToastContainer />
           {props.auth.isAuthenticateed ? Router.pushRoute("/") : null}
-          <h1 className="p-5 text-center">Signup</h1>
+          <h1 className="p-5 up text-center">Signup</h1>
           {signupForm()}
         </div>
       </BaseWrapper>

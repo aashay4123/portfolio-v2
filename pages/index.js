@@ -33,7 +33,7 @@ const Index = (props) => {
               Your browser is not Supported
             </video>
           </div>
-          <Row>
+          <Row className="pt-4">
             <Col md="6">
               <div className="hero-section">
                 <div className={`flipper`}>

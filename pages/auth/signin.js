@@ -80,11 +80,11 @@ const Signin = (props, { router }) => {
         />
       </div>
       <Row>
-        <button className="btn btn-primary mr-5 ml-3" onClick={clickSubmit}>
+        <button className="btn btn-primary ml-3" onClick={clickSubmit}>
           {buttonText}
         </button>
         <Link href="/auth/signup">
-          <a className="btn btn-sm btn-success p-2"> create Account </a>
+          <a className="btn btn-sm btn-success"> create Account </a>
         </Link>
       </Row>
     </form>
@@ -96,17 +96,13 @@ const Signin = (props, { router }) => {
         <div className="col-md-6 offset-med-3">
           <ToastContainer />
           {auth.isAuthenticated ? Router.pushRoute("/") : null}
-          <h1 className="p-5 text-center">Signin</h1>
+          <h1 className="p-5 text-center up">Signin</h1>
           {/* <Google informParent={informParent} />
           <Facebook informParent={informParent} /> */}
           <p className="lead text-center">OR</p>
           {signinForm()}
-
-          <br />
           <Link href="/auth/forgot">
-            <a className="btn btn-sm mt-4 btn-outline-danger">
-              Forgot Password
-            </a>
+            <a className="btn btn-sm btn-outline-danger">Forgot Password</a>
           </Link>
         </div>
       </BaseWrapper>

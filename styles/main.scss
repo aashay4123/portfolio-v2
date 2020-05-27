@@ -1,6 +1,9 @@
 @import "./shared/colors";
 @import "./shared/mixins";
-
+$color-primary: rgb(20, 30, 121);
+$color-primary-light: #2199d1;
+$color-primary-dark: rgb(27, 27, 68);
+$color-grey-dark: #777;
 // // PAGES
 @import "./index";
 @import "./portfolios";
@@ -13,9 +16,11 @@
 @import "./slate-editor";
 @import "./index";
 @import "./footers";
+@import "./button";
 
 html,
 body {
+  // font-size: 62.5%;
   height: 100%;
   width: 100%;
   font-family: "Helvetica";
@@ -54,12 +59,15 @@ body {
   min-height: 100vh;
 
   .page-header {
+    text-align: center;
     .page-header-title {
+      // font-size: 3rem;
       font-weight: 700;
       color: whitesmoke;
       display: inline-block;
       margin-bottom: 20px;
       text-align: center;
+      margin-top: 5rem;
     }
   }
 }

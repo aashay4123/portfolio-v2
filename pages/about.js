@@ -12,7 +12,7 @@ class About extends React.Component {
         auth={this.props.auth}
       >
         <BasePage className="about-page">
-          <Row className="mt-5">
+          <Row className="mt-lg">
             <Col md="6">
               <div className="left-side">
                 <h1 className="title fadein">Hello, Welcome</h1>

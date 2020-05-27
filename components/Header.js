@@ -18,10 +18,9 @@ import { Router } from "../routes";
 const BsNavlink = (props) => {
   const { link, child } = props;
   const className = props.className || "";
-
   return (
     <ActiveLink activeClassName="active" href={link}>
-      <a className={`${className} nav-link port-navbar-link`}> {child} </a>
+      <a className={`${className} nav-link port-navbar-link `}> {child} </a>
     </ActiveLink>
   );
 };
@@ -70,43 +69,19 @@ const Header = (props) => {
             </NavItem>
 
             <NavItem className="port-navbar-item">
-              <BsNavlink link="/blogs" child="blogs" />
+              <BsNavlink link="/blogs" child="My blogs" />
             </NavItem>
 
             <NavItem className="port-navbar-item">
-              <BsNavlink link="/cv" child="CV" />
+              <BsNavlink link="/cv" child="Resume" />
             </NavItem>
 
             <NavItem className="port-navbar-item">
-              <BsNavlink link="/about" child="about" />
+              <BsNavlink link="/about" child="about Me" />
             </NavItem>
 
             {!auth.isAuthenticated && (
-              <UncontrolledDropdown
-                nav
-                inNavbar
-                className={`port-navbar-link port-dropdown-menu ${menuclass}`}
-              >
-                <DropdownToggle className="port-dropdown-toggle" nav caret>
-                  Auth
-                </DropdownToggle>
-                <DropdownMenu className={`${menuclass}`} right>
-                  <DropdownItem>
-                    <BsNavlink
-                      className={`port-dropdown-item ${menuclass}`}
-                      link="/auth/signin"
-                      child="signin"
-                    />
-                  </DropdownItem>
-                  <DropdownItem>
-                    <BsNavlink
-                      className={`port-dropdown-item ${menuclass}`}
-                      link="/auth/signup"
-                      child="signup"
-                    />
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <BsNavlink link="/auth/signin" child="signin :-)" />
             )}
 
             {auth.isAuthenticated && (
@@ -153,3 +128,65 @@ const Header = (props) => {
 };
 
 export default Header;
+
+{
+  /* <UncontrolledDropdown
+nav
+inNavbar
+className={`port-navbar-link port-dropdown-menu ${menuclass}`}
+>
+<DropdownToggle className="port-dropdown-toggle" nav caret>
+  Auth
+</DropdownToggle>
+<DropdownMenu className={`${menuclass}`} right>
+  <DropdownItem>
+    <BsNavlink
+      className={`port-dropdown-item ${menuclass}`}
+      link="/auth/signin"
+      child="signin"
+    />
+  </DropdownItem>
+  <DropdownItem>
+    <BsNavlink
+      className={`port-dropdown-item ${menuclass}`}
+      link="/auth/signup"
+      child="signup"
+    />
+  </DropdownItem>
+</DropdownMenu>
+</UncontrolledDropdown> 
+    <div className="navigation">
+      <input
+        type="checkbox"
+        className="navigation__checkbox"
+        id="navi-toggle"
+      />
+      <label htmlFor="navi-toggle" className="navigation__button">
+        <span className="navigation__icon">&nbsp;</span>
+      </label>
+      <div className="navigation__background">&nbsp;</div>
+      <nav className="navigation__nav">
+        <ul className="navigation__list">
+          <li className="navigation__item">
+            <BsNavlink link="/portfolios" child="portfolio" />
+          </li>
+          <li className="navigation__item">
+            <BsNavlink link="/blogs" child="My blogs" />
+          </li>
+          <li className="navigation__item">
+            <BsNavlink link="/cv" child="Resume" />
+          </li>
+          <li className="navigation__item">
+            <BsNavlink link="/about" child="about Me" />
+          </li>
+          <li className="navigation__item">
+            <BsNavlink link="/auth/signin" child="signin :-)" />
+          </li>
+          <li className="navigation__item"></li>
+          <li className="navigation__item"></li>
+        </ul>
+      </nav>
+    </div>
+ 
+*/
+}
