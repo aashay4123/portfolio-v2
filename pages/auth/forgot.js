@@ -39,7 +39,7 @@ const Forgot = (props) => {
   const passwordForgotForm = () => (
     <form>
       <div className="form-group">
-        <label className="text-muted">email</label>
+        <label>email</label>
         <input
           onChange={handleChange("email")}
           type="text"

@@ -57,7 +57,7 @@ class Activate extends React.Component {
           Hey {this.state.name}, Ready to activate your account?
         </h1>
         <button
-          className="btn btn-outline-dark"
+          className="btn btn--white"
           onClick={() => this.clickSubmit(event)}
         >
           <strong>Activate Account</strong>

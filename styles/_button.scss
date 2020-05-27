@@ -48,6 +48,13 @@
   &-sm {
     margin-left: 0 !important;
   }
+  &--white {
+    background-color: white;
+    color: $color-grey-dark;
+    &::after {
+      background-color: white;
+    }
+  }
 }
 .up {
   text-transform: uppercase;

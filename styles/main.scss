@@ -51,13 +51,15 @@ body {
   color: white;
   background-image: linear-gradient(
       to right bottom,
-      rgba(#1925d8, 0.62) 0%,
-      rgba(#0b7a62, 0.62) 100%
+      rgba(#1925d8, 0.32) 0%,
+      rgba(#0b7a62, 0.22) 100%
     ),
     url("../public/static/images/test1.jpg ");
   background-size: cover;
   min-height: 100vh;
-
+  @include respond(tab-land) {
+    padding: 18vh 0 10vh 0;
+  }
   .page-header {
     text-align: center;
     .page-header-title {
@@ -67,7 +69,7 @@ body {
       display: inline-block;
       margin-bottom: 20px;
       text-align: center;
-      margin-top: 5rem;
+      // margin-top: 5rem;
     }
   }
 }

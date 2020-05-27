@@ -24,7 +24,10 @@
     margin-top: 1em;
   }
   .mt-lg {
-    margin-top: 10rem !important;
+    margin-top: 5rem !important;
+    @include respond(phone) {
+      margin-top: 0 !important;
+    }
   }
   .title {
     @include animation-detail(0.7s);

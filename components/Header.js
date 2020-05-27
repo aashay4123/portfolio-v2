@@ -81,7 +81,7 @@ const Header = (props) => {
             </NavItem>
 
             {!auth.isAuthenticated && (
-              <BsNavlink link="/auth/signin" child="signin :-)" />
+              <BsNavlink link="/auth/signin" child="sign in" />
             )}
 
             {auth.isAuthenticated && (

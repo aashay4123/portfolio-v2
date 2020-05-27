@@ -62,7 +62,7 @@ class Reset extends React.Component {
     return (
       <form>
         <div className="form-group">
-          <label className="text-muted">
+          <label>
             <strong>New Password</strong>
           </label>
           <input
@@ -77,7 +77,7 @@ class Reset extends React.Component {
 
         <div>
           <button
-            className="btn btn-dark"
+            className="btn btn--white"
             onClick={() => this.clickSubmit(event)}
           >
             <strong> {this.state.buttonText}</strong>
