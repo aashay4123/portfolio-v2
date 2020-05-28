@@ -80,6 +80,37 @@ export const deletePortfolio = (portfolioId) => {
     .delete(`/portfolios/${portfolioId}`, setAuthHeader())
     .then((response) => response.data);
 };
+//======================Projects------------------
+
+export const getProjects = async () => {
+  return await axiosInstance.get("/project").then((response) => response.data);
+};
+
+export const getProjectById = async (id) => {
+  return await axiosInstance
+    .get(`/project/${id}`)
+    .then((response) => response.data);
+};
+
+export const createProject = async (projectData) => {
+  return await axiosInstance
+    .post("/project", projectData, setAuthHeader())
+    .then((response) => response.data)
+    .catch((error) => rejectPromise(error));
+};
+
+export const updateProject = async (projectData) => {
+  return await axiosInstance
+    .patch(`/project/${projectData._id}`, projectData, setAuthHeader())
+    .then((response) => response.data)
+    .catch((error) => rejectPromise(error));
+};
+
+export const deleteProject = (projectId) => {
+  return axiosInstance
+    .delete(`/project/${projectId}`, setAuthHeader())
+    .then((response) => response.data);
+};
 
 // ------------ BLOG ACTIONS --------------
 

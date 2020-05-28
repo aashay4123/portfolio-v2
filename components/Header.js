@@ -20,7 +20,10 @@ const BsNavlink = (props) => {
   const className = props.className || "";
   return (
     <ActiveLink activeClassName="active" href={link}>
-      <a className={`${className} nav-link port-navbar-link `}> {child} </a>
+      <a className={`${className} nav-link port-navbar-link nav__link`}>
+        {" "}
+        {child}{" "}
+      </a>
     </ActiveLink>
   );
 };
@@ -51,9 +54,9 @@ const Header = (props) => {
   }
 
   return (
-    <div>
+    <div className="">
       <Navbar
-        className={`port-navbar port-nav-base absolute ${className} ${menuclass}`}
+        className={`port-navbar port-nav-base absolute  ${className} ${menuclass}`}
         color="transparent"
         dark
         expand="md"
@@ -63,8 +66,9 @@ const Header = (props) => {
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
+          <div className="nav__background">&nbsp;</div>
           <Nav className="ml-auto" navbar>
-            <NavItem className="port-navbar-item">
+            <NavItem className="port-navbar-item ">
               <BsNavlink link="/portfolios" child="portfolio" />
             </NavItem>
 
@@ -81,7 +85,9 @@ const Header = (props) => {
             </NavItem>
 
             {!auth.isAuthenticated && (
-              <BsNavlink link="/auth/signin" child="sign in" />
+              <NavItem className="port-navbar-item">
+                <BsNavlink link="/auth/signin" child="sign in" />
+              </NavItem>
             )}
 
             {auth.isAuthenticated && (
@@ -90,7 +96,11 @@ const Header = (props) => {
                 inNavbar
                 className={`port-navbar-link port-dropdown-menu ${menuclass}`}
               >
-                <DropdownToggle className={`port-dropdown-toggle`} nav caret>
+                <DropdownToggle
+                  className={`port-dropdown-toggle color-white`}
+                  nav
+                  caret
+                >
                   {auth.user.name}
                 </DropdownToggle>
                 <DropdownMenu right className={`${menuclass}`}>

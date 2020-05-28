@@ -51,10 +51,10 @@ body {
   color: white;
   background-image: linear-gradient(
       to right bottom,
-      rgba(#1925d8, 0.32) 0%,
-      rgba(#0b7a62, 0.22) 100%
+      rgba(#026e96, 0.62) 0%,
+      rgba(#032c49, 0.62) 100%
     ),
-    url("../public/static/images/test1.jpg ");
+    url("../public/static/images/section-2.jpg") !important;
   background-size: cover;
   min-height: 100vh;
   @include respond(tab-land) {

@@ -18,6 +18,7 @@ const userRoutes = require("./routes/user");
 const bookRoutes = require("./routes/book");
 const portfolioRoutes = require("./routes/portfolio");
 const blogRoutes = require("./routes/blog");
+const projectRoutes = require("./routes/project");
 
 const robotsOptions = {
   root: path.join(__dirname, "../public/static"),
@@ -52,6 +53,7 @@ app
     server.use("/api/v1/portfolios", portfolioRoutes);
     server.use("/api/v1/blogs", blogRoutes);
     server.use("/api/v1/book", bookRoutes);
+    server.use("/api/v1/project", projectRoutes);
 
     server.use(function (err, req, res, next) {
       if (err.name === "UnauthorizedError") {

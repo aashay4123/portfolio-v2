@@ -4,6 +4,10 @@ module.exports = routes()
   .add("portfolioNew", "/portfolios/new")
   .add("portfolio", "/portfolios/:id")
   .add("portfolioEdit", "/portfolios/:id/edit")
+
+  .add("projectCreate", "/project/new")
+  .add("projectEdit", "/project/:id/edit")
+
   .add("userBlogs", "/blogs/dashboard")
   .add("blogEditor", "/blogs/new")
   .add("blogDetail", "/blogs/:slug")
