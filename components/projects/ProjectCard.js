@@ -27,7 +27,7 @@ const ProjectCard = (props) => {
           <CardTitle className="portfolio-card-title">
             {project.language}
           </CardTitle>
-          <CardText className="portfolio-card-text mb-sm">
+          <CardText className="portfolio-card-text mb-psm">
             {project.description}
           </CardText>
           <div className="readMore">{children}</div>

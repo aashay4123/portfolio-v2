@@ -1,6 +1,9 @@
-$main-color-blue: #0977C0;
-$main-color-red: 'red';
-
+$main-color-blue: #0977c0;
+$main-color-red: "red";
+$color-primary-port: rgb(20, 30, 121);
+$color-primary-port-light: #2199d1;
+$color-primary-port-dark: rgb(27, 27, 68);
+$color-grey-dark: #777;
 $navbar-orange: #dba919;
 $base-page-white: #ecedee;
 
@@ -16,16 +19,61 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 
-$primary: #18BC9C !default;
-$secondary: #2C3E50 !default;
+$primary: #18bc9c !default;
+$secondary: #2c3e50 !default;
 
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
-$teal:    #0085A1 !default;
-$cyan:    #17a2b8 !default;
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #0085a1 !default;
+$cyan: #17a2b8 !default;
+$color-primary-hotel: #c69963;
+$color-primary-hotel-dark: #b28451;
+
+$color-secondary: #101d2c;
+
+// FONT VARIABLES
+$font-primary: "Nunito", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+
+// COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT
+$default-font-size: 16px;
+
+// GRID
+$grid-width: 1140px;
+$gutter-vertical: 80px;
+$gutter-vertical-small: 60px;
+$gutter-horizontal: 60px;

@@ -20,13 +20,13 @@ const ProjectCardDetail = (props) => {
             {project.language}
           </p>
           <p>
-            <b>typeof: </b>
+            <b>type: </b>
             {project.typeof}
           </p>
 
           <p>
             <b>Date: </b>
-            {moment(project.createdat).format("DD MMMM YYYY")}
+            {moment(project.Date).format("DD MMMM YYYY")}
           </p>
         </ModalBody>
         <ModalFooter>

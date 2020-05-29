@@ -1,0 +1,69 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  // font-size: 62.5%;
+  box-sizing: border-box;
+
+  height: 100%;
+  width: 100%;
+  font-family: "Helvetica";
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.self-typed {
+  font-size: 31px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.error {
+  font-weight: 700;
+  color: red;
+}
+
+.base-page {
+  padding: 150px 0 100px 0;
+  color: white;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(#026e96, 0.62) 0%,
+      rgba(#032c49, 0.62) 100%
+    ),
+    url("../public/static/images/section-2.jpg") !important;
+  background-size: cover;
+  min-height: 100vh;
+  @include respond(tab-land) {
+    padding: 18vh 0 10vh 0;
+  }
+  .page-header {
+    text-align: center;
+    .page-header-title {
+      font-weight: 700;
+      color: whitesmoke;
+      display: inline-block;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+}
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

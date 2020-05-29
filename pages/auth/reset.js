@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../../../components/Layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import jwt from "jsonwebtoken";
 import axios from "axios";
-import BaseWrapper from "../../../components/BaseWrapper";
+import BaseWrapper from "../../components/BaseWrapper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import config from "../../../server/config";
-import { Router } from "../../../routes";
+import { Router } from "../../routes";
 
 class Reset extends React.Component {
   static async getInitialProps(ctx) {

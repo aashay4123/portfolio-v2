@@ -56,6 +56,7 @@ const Signup = (props) => {
           type="text"
           value={name}
           className="form-control"
+          placeholder="name"
         />
       </div>
       <div className="form-group">
@@ -65,6 +66,7 @@ const Signup = (props) => {
           type="text"
           value={email}
           className="form-control"
+          placeholder="email"
         />
       </div>
       <div className="form-group">
@@ -74,6 +76,7 @@ const Signup = (props) => {
           type="password"
           value={password}
           className="form-control"
+          placeholder="password"
         />
       </div>
       <div>

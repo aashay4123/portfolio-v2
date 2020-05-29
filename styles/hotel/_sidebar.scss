@@ -1,0 +1,47 @@
+.sidebar {
+  @extend %fontsize;
+
+  background-color: $color-primary-hotel;
+  grid-column: sidebar-start/sidebar-end;
+  grid-row: 1/-1;
+  display: flex;
+  justify-content: center;
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1/ -1;
+    grid-row: 1/ 2;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+.navi-btnh {
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+  height: 2px;
+  width: 4.5em;
+  margin-top: 4em;
+  &::before,
+  &::after {
+    background-color: #fff;
+    content: "";
+    height: 2px;
+    width: 4.5em;
+    display: block;
+  }
+  &::before {
+    transform: translateY(-1.5em);
+  }
+  &::after {
+    transform: translateY(1.3em);
+  }
+  @media only screen and (max-width: $bp-large) {
+    margin-top: 0;
+    margin-right: 3em;
+    &::before {
+      transform: translateY(-1.2em);
+    }
+    &::after {
+      transform: translateY(1em);
+    }
+  }
+}

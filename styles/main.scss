@@ -1,75 +1,48 @@
 @import "./shared/colors";
 @import "./shared/mixins";
-$color-primary: rgb(20, 30, 121);
-$color-primary-light: #2199d1;
-$color-primary-dark: rgb(27, 27, 68);
-$color-grey-dark: #777;
+
+//base
+@import "./portfolio/base.scss";
+
 // // PAGES
-@import "./index";
-@import "./portfolios";
-@import "./blogs";
-@import "./about";
-@import "./cv";
+@import "./portfolio/index";
+@import "./portfolio/portfolios";
+@import "./portfolio/blogs";
+@import "./portfolio/about";
+@import "./portfolio/cv";
 
 // // COMPONENTS
-@import "./header";
-@import "./slate-editor";
-@import "./index";
-@import "./footers";
-@import "./button";
+@import "./portfolio/header";
+@import "./portfolio/slate-editor";
+@import "./portfolio/index";
+@import "./portfolio/footers";
+@import "./portfolio/button";
 
-html,
-body {
-  // font-size: 62.5%;
-  height: 100%;
-  width: 100%;
-  font-family: "Helvetica";
-}
+@import "./hotel/typography";
+@import "./hotel/sidebar";
+@import "./hotel/realtors";
+@import "./hotel/features";
+@import "./hotel/homes";
+@import "./hotel/gallery";
+@import "./hotel/header";
+@import "./hotel/story";
 
-.clickable {
-  cursor: pointer;
-}
+@import "./hotel/footer";
+@import "./hotel/container";
 
-.self-typed {
-  font-size: 31px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: white;
-}
+/////natours
 
-.absolute {
-  position: absolute;
-}
+@import "./natour/typography";
+@import "./natour/utilities";
 
-.error {
-  font-weight: 700;
-  color: red;
-}
-
-.base-page {
-  padding: 150px 0 100px 0;
-  color: white;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(#026e96, 0.62) 0%,
-      rgba(#032c49, 0.62) 100%
-    ),
-    url("../public/static/images/section-2.jpg") !important;
-  background-size: cover;
-  min-height: 100vh;
-  @include respond(tab-land) {
-    padding: 18vh 0 10vh 0;
-  }
-  .page-header {
-    text-align: center;
-    .page-header-title {
-      // font-size: 3rem;
-      font-weight: 700;
-      color: whitesmoke;
-      display: inline-block;
-      margin-bottom: 20px;
-      text-align: center;
-      // margin-top: 5rem;
-    }
-  }
-}
+@import "./natour/card";
+@import "./natour/composition";
+@import "./natour/feature-box";
+@import "./natour/form";
+@import "./natour/story";
+@import "./natour/footer";
+@import "./natour/grid";
+@import "./natour/header";
+@import "./natour/navigation";
+@import "./natour/home";
+@import "./natour/bg-video";

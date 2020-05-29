@@ -24,11 +24,11 @@ exports.signup = (req, res) => {
       to: email,
       subject: `Account activation link`,
       text: `
-                <h1>Please use the following link to activate your account</h1>
-                <p>${config.BASE_URL}/auth/activate/${token}</p>
-                <hr />
-                <p>This email may contain sensetive information</p>
-                <p>${config.BASE_URL}</p>
+               Please use the following link to activate your account
+                ${config.BASE_URL}/auth/activate/${token}
+             
+                This email may contain sensetive information
+                ${config.BASE_URL}
             `,
     };
     sendEmail(emailData)
@@ -69,6 +69,15 @@ exports.accountActivation = (req, res) => {
             error: "Error saving user in database. Try signup again",
           });
         }
+        const emailData = {
+          from: config.EMAIL_USERID,
+          to: "aashayphirke5798@gmail.com",
+          subject: `Account added`,
+          text: `
+                   ${user}
+                `,
+        };
+        sendEmail(emailData);
         return res.json({
           message: "Signup success. Please signin.",
         });

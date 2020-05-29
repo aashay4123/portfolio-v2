@@ -1,12 +1,12 @@
 import React from "react";
-import Layout from "../../../components/Layout/Layout";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import BaseWrapper from "../../../components/BaseWrapper";
+import BaseWrapper from "../../components/BaseWrapper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import config from "../../../server/config";
-import { Router } from "../../../routes";
+import config from "../../server/config";
+import { Router } from "../../routes";
 
 class Activate extends React.Component {
   static async getInitialProps(ctx) {

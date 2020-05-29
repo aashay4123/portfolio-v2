@@ -68,6 +68,7 @@ const Signin = (props, { router }) => {
           type="text"
           value={email}
           className="form-control"
+          placeholder="email"
         />
       </div>
       <div className="form-group">
@@ -77,6 +78,7 @@ const Signin = (props, { router }) => {
           type="password"
           value={password}
           className="form-control"
+          placeholder="Password"
         />
       </div>
       <Row>

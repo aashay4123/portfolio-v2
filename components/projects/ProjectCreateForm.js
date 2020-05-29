@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { Button } from "reactstrap";
 import PortInput from "../form/PortInput";
+import PortDate from "../form/PortDate";
 
 import moment from "moment";
 
@@ -50,6 +51,7 @@ const PortfolioCreateForm = ({ initialValues, onSubmit }) => {
               name="description"
               component={PortInput}
             />
+            <Field label="Date" name="Date" component={PortDate} />
             <Button
               color="success"
               size="lg"

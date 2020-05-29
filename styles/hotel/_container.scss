@@ -1,0 +1,31 @@
+// COLOR VARIABLES
+
+// html {
+//   font-size: 62.5%;
+//   @media only screen and (max-width: $bp-largest) {
+//     font-size: 50%;
+//   }
+// }
+
+.hotelcontainer {
+  @extend %fontsize;
+
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns:
+    [sidebar-start] 8em [sidebar-end full-start] minmax(6em, 1fr)
+    [center-start] repeat(8, [col-start] minmax(min-content, 14em) [col-end])
+    [center-end] minmax(6em, 1fr) [full-end];
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-rows: 6em 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns:
+      [full-start] minmax(6em, 1fr) [center-start]
+      repeat(8, [col-start] minmax(min-content, 14em) [col-end])
+      [center-end] minmax(6em, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-rows: 6em calc(100vh - 6em);
+  }
+}
