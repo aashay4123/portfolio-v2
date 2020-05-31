@@ -6,10 +6,9 @@ import axios from "axios";
 import { authenticate } from "../../components/helper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import config from "../../server/config";
 import BaseWrapper from "../../components/BaseWrapper";
 import { withRouter } from "next/router";
-import { Row, Col, Button } from "reactstrap";
+import { Row } from "reactstrap";
 
 // import Facebook from "../services/facebook";
 // import Google from "../services/google";

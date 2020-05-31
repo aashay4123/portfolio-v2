@@ -4,7 +4,7 @@ import BasePage from "../components/BaseWrapper";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "../routes";
 
-import { getBlogs } from "../actions";
+import { getBlogs } from "../store/actions";
 import { shortenText } from "../helpers/utils";
 
 import moment from "moment";

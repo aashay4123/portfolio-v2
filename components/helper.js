@@ -1,7 +1,7 @@
 import cookie from "js-cookie";
 import jwt from "jsonwebtoken";
 import { Router } from "../routes";
-import { getUser } from "../actions";
+import { getUser } from "../store/actions";
 //set in cookie
 export const setcookie = (key, value) => {
   if (typeof window !== "undefined") {

@@ -8,7 +8,7 @@ import config from "../server/config";
 import BaseWrapper from "../components/BaseWrapper";
 import { Router } from "../routes";
 import withAuth from "../components/hoc/withAuth";
-import { loadProfile } from "../actions";
+import { loadProfile } from "../store/actions";
 
 const Admin = (props) => {
   const [values, setValues] = useState({

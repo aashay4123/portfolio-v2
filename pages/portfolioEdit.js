@@ -6,7 +6,7 @@ import withAuth from "../components/hoc/withAuth";
 
 import { Row, Col } from "reactstrap";
 
-import { updatePortfolio, getPortfolioById } from "../actions";
+import { updatePortfolio, getPortfolioById } from "../store/actions";
 
 // import withAuth from "../components/hoc/withAuth";
 import { Router } from "../routes";

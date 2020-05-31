@@ -30,14 +30,15 @@ const ProjectCardDetail = (props) => {
           </p>
         </ModalBody>
         <ModalFooter>
-          <Button
-            color="success"
-            onClick={() => {
-              Router.pushRoute(`${project.url}`);
+          <a
+            className="btn btn--green"
+            onClick={(e) => {
+              e.stopPropagation();
             }}
+            href={`${project.url}`}
           >
             view
-          </Button>
+          </a>
           <Button color="secondary" onClick={toggle}>
             Cancel
           </Button>

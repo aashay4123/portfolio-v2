@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import config from "../server/config";
-import { getCookieFromReq } from "../components/helper";
+// import config from "../server/config";
+import { getCookieFromReq } from "../../components/helper";
 
 const axiosInstance = axios.create({
   baseURL: `${process.env.BASE_URL}/api/v1`,

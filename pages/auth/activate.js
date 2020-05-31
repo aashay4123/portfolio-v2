@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import BaseWrapper from "../../components/BaseWrapper";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import config from "../../server/config";
 import { Router } from "../../routes";
 
 class Activate extends React.Component {

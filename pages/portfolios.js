@@ -7,7 +7,7 @@ import {
   deletePortfolio,
   getProjects,
   deleteProject,
-} from "../actions";
+} from "../store/actions";
 import PortfolioCard from "../components/portfolios/PortfolioCard";
 import ProjectCard from "../components/projects/ProjectCard";
 import { Row, Col, Button } from "reactstrap";
@@ -94,15 +94,24 @@ class Portfolios extends React.Component {
       return (
         <Col md="4" key={index}>
           <ProjectCard project={project}>
-            <Button
+            {/* <Button
               color="success"
               onClick={(e) => {
                 e.stopPropagation();
-                Router.pushRoute(`${project.url}`);
+                href={`${project.url}`}
               }}
             >
               view
-            </Button>
+            </Button> */}
+            <a
+              className="btn btn--green"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              href={`${project.url}`}
+            >
+              view
+            </a>
             {auth.admin && (
               <Fragment>
                 <Button

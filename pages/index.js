@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import BaseLayout from "../components/Layout/Layout";
-import { Button, Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import Typed from "react-typed";
 const Index = (props) => {
   return (

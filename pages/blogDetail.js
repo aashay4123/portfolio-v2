@@ -4,7 +4,7 @@ import BasePage from "../components/BaseWrapper";
 
 import { Row, Col } from "reactstrap";
 
-import { getBlogBySlug } from "../actions";
+import { getBlogBySlug } from "../store/actions";
 
 class BlogDetail extends React.Component {
   static async getInitialProps({ query }) {

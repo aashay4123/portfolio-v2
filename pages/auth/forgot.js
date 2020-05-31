@@ -3,7 +3,6 @@ import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import config from "../../server/config";
 import BaseWrapper from "../../components/BaseWrapper";
 
 const Forgot = (props) => {

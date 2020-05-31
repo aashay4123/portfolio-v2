@@ -7,7 +7,7 @@ import withAuth from "../components/hoc/withAuth";
 import SlateEditor from "../components/slate-editor/Editor";
 import { toast } from "react-toastify";
 
-import { getBlogById, updateBlog } from "../actions";
+import { getBlogById, updateBlog } from "../store/actions";
 
 class BlogEditorUpdate extends React.Component {
   static async getInitialProps({ query }) {

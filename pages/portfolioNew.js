@@ -5,7 +5,7 @@ import PortfolioCreateForm from "../components/portfolios/PortfolioCreateForm";
 import { Row, Col } from "reactstrap";
 import { Router } from "../routes";
 import moment from "moment";
-import { createPortfolio } from "../actions";
+import { createPortfolio } from "../store/actions";
 import withAuth from "../components/hoc/withAuth";
 
 const INITIAL_VALUES = {

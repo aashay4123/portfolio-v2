@@ -7,7 +7,7 @@ import PortButtonDropdown from "../components/ButtonDropdown";
 import withAuth from "../components/hoc/withAuth";
 import { Link, Router } from "../routes";
 
-import { getUserBlogs, updateBlog, deleteBlog } from "../actions";
+import { getUserBlogs, updateBlog, deleteBlog } from "../store/actions";
 
 class UserBlogs extends React.Component {
   static async getInitialProps({ req }) {

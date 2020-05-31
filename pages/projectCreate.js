@@ -5,7 +5,7 @@ import ProjectCreateForm from "../components/projects/ProjectCreateForm";
 import { Row, Col } from "reactstrap";
 import { Router } from "../routes";
 import moment from "moment";
-import { createProject } from "../actions";
+import { createProject } from "../store/actions";
 import withAuth from "../components/hoc/withAuth";
 
 const INITIAL_VALUES = {
