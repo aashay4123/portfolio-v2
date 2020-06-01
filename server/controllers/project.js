@@ -2,7 +2,7 @@ const Project = require("../models/project");
 
 exports.getprojects = (req, res) => {
   Project.find({})
-    .sort({ timestamps: -1 })
+    .sort({ Date: -1 })
     .exec((err, project) => {
       if (err) {
         return res.status(422).send(err);
