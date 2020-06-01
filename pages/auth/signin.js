@@ -92,12 +92,12 @@ const Signin = (props, { router }) => {
   );
 
   return (
-    <Layout title="signin page" auth={auth}>
+    <Layout title="sign in page" auth={auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />
           {auth.isAuthenticated ? Router.pushRoute("/") : null}
-          <h1 className="p-5 text-center up">Signin</h1>
+          <h1 className="p-5 text-center up">Sign in</h1>
           {/* <Google informParent={informParent} />
           <Facebook informParent={informParent} /> */}
           <p className="lead text-center">OR</p>

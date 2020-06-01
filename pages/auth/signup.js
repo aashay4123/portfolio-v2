@@ -86,12 +86,12 @@ const Signup = (props) => {
     </form>
   );
   return (
-    <Layout title="signup page" auth={props.auth}>
+    <Layout title="sign up page" auth={props.auth}>
       <BaseWrapper>
         <div className="col-md-6 offset-med-3">
           <ToastContainer />
           {props.auth.isAuthenticateed ? Router.pushRoute("/") : null}
-          <h1 className="p-5 up text-center">Signup</h1>
+          <h1 className="p-5 up text-center">Sign up</h1>
           {signupForm()}
         </div>
       </BaseWrapper>
