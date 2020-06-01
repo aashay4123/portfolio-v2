@@ -138,7 +138,9 @@ export default function natour() {
           <div className="rownat">
             <div className="col-1-of-4">
               <div className="feature-box">
-                <i className="feature-box__icon icon-basic-world"></i>
+                <svg className="feature-box__icon ">
+                  <use xlinkHref="/static/images/sprite.svg#icon-global"></use>
+                </svg>
                 <h3 className="heading-tertiary u-margin-bottom-small">
                   Explore the world
                 </h3>
@@ -151,7 +153,9 @@ export default function natour() {
 
             <div className="col-1-of-4">
               <div className="feature-box">
-                <i className="feature-box__icon icon-basic-compass"></i>
+                <svg className="feature-box__icon ">
+                  <use xlinkHref="/static/images/sprite.svg#icon-map-pin"></use>
+                </svg>
                 <h3 className="heading-tertiary u-margin-bottom-small">
                   Meet nature
                 </h3>
@@ -164,7 +168,9 @@ export default function natour() {
 
             <div className="col-1-of-4">
               <div className="feature-box">
-                <i className="feature-box__icon icon-basic-map"></i>
+                <svg className="feature-box__icon">
+                  <use xlinkHref="/static/images/sprite.svg#icon-presentation"></use>
+                </svg>
                 <h3 className="heading-tertiary u-margin-bottom-small">
                   Find your way
                 </h3>
@@ -177,7 +183,9 @@ export default function natour() {
 
             <div className="col-1-of-4">
               <div className="feature-box">
-                <i className="feature-box__icon icon-basic-heart"></i>
+                <svg className="feature-box__icon">
+                  <use xlinkHref="/static/images/sprite.svg#icon-heart"></use>
+                </svg>
                 <h3 className="heading-tertiary u-margin-bottom-small">
                   Live a healthier life
                 </h3>

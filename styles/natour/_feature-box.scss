@@ -14,19 +14,19 @@
   }
 
   &__icon {
-    font-size: 6em;
-    margin-bottom: 0.5em;
+    height: 4em;
+    width: 4em;
+
+    margin-bottom: 1em;
     display: inline-block;
-    background-image: linear-gradient(
-      to right,
-      $color-primary-light,
-      $color-primary-dark
-    );
+    fill: $color-primary-light;
     -webkit-background-clip: text;
     color: transparent;
 
     @include respond(tab-port) {
       margin-bottom: 0;
+      height: 3em;
+      width: 3em;
     }
   }
 

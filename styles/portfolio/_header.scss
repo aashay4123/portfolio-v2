@@ -77,7 +77,15 @@
     border-radius: 50%;
     position: fixed;
     top: 30vh;
-    right: 10vw;
+    right: 30vw;
+  }
+  @media only screen and (max-width: 418px) {
+    height: 10vh;
+    width: 16em;
+    border-radius: 50%;
+    position: fixed;
+    top: 30vh;
+    right: 11vw;
   }
 }
 // navbar-expand-md
@@ -181,4 +189,7 @@
       transform: scale(25);
     }
   }
+}
+.dropdown-menu {
+  background-color: transparent;
 }
