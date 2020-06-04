@@ -100,7 +100,7 @@ const Signin = (props, { router }) => {
           <h1 className="p-5 text-center up">Sign in</h1>
           {/* <Google informParent={informParent} />
           <Facebook informParent={informParent} /> */}
-          <p className="lead text-center">OR</p>
+          {/* <p className="lead text-center">OR</p> */}
           {signinForm()}
           <Link href="/auth/forgot">
             <a className="btn btn-sm btn-outline-danger">Forgot Password</a>

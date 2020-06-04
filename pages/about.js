@@ -22,8 +22,8 @@ class About extends React.Component {
             <Col md="6">
               <div className="fadein mt-sm">
                 <p>
-                  My name is Aashay Phirke and I am software engineer and
-                  freelance developer.
+                  My name is Aashay Phirke. I am software and hardware engineer
+                  and freelance developer.
                 </p>
                 <p>
                   I have a bachelor's degree in Electronics and
