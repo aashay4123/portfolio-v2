@@ -94,24 +94,18 @@ class Portfolios extends React.Component {
       return (
         <Col md="4" key={index}>
           <ProjectCard project={project}>
-            {/* <Button
-              color="success"
-              onClick={(e) => {
-                e.stopPropagation();
+            {project.url && (
+              <a
+                className="btn btn--green"
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+                target="_blank"
                 href={`${project.url}`}
-              }}
-            >
-              view
-            </Button> */}
-            <a
-              className="btn btn--green"
-              onClick={(e) => {
-                e.stopPropagation();
-              }}
-              href={`${project.url}`}
-            >
-              view
-            </a>
+              >
+                view
+              </a>
+            )}
             {auth.admin && (
               <Fragment>
                 <Button

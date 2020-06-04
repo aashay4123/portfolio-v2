@@ -35,6 +35,7 @@ const ProjectCardDetail = (props) => {
             onClick={(e) => {
               e.stopPropagation();
             }}
+            target="_blank"
             href={`${project.url}`}
           >
             view

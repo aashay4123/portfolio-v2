@@ -15,11 +15,11 @@ export default function Footers() {
                 <li className="list-inline-item">
                   <a
                     target="_blank"
-                    href="https://www.facebook.com/aashay.phirke"
+                    href="https://www.instagram.com/aashayphirke/"
                   >
                     <span className="fa-stack fa-lg">
                       <i className="fas fa-circle fa-stack-2x"></i>
-                      <i className="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                      <i className="fab fa-instagram fa-stack-1x fa-inverse"></i>
                     </span>
                   </a>
                 </li>

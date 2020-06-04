@@ -9,7 +9,7 @@ import moment from "moment";
 const validateInputs = (values) => {
   let errors = {};
   Object.entries(values).forEach(([key, value]) => {
-    if (!value && (key !== "url" || value !== null)) {
+    if (!value && key !== "url") {
       errors[key] = `Field ${key} is required!`;
     }
   });

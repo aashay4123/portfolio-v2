@@ -14,7 +14,7 @@ const projectSchema = new Schema(
     language: setStringType(256),
     typeof: setStringType(128),
     description: setStringType(2048),
-    url: mongoose.SchemaTypes.Url,
+    url: String,
     Date: { type: Date, required: true },
   },
   { timestamps: true }
