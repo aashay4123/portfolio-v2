@@ -55,6 +55,19 @@ app
     server.use("/api/v1/book", bookRoutes);
     server.use("/api/v1/project", projectRoutes);
 
+    server.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.set({ "Cache-Control": "only-if-cached" });
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin,X-Requested-With,Content-Type,Accept,Authorization"
+      );
+      if (req.method === "OPTIONS") {
+        res.header("Access-Control-Allow-Methods", "PUT,POST,PATCH,DELETE,GET");
+        return res.status(200).json({});
+      }
+      next();
+    });
     server.use(function (err, req, res, next) {
       if (err.name === "UnauthorizedError") {
         res

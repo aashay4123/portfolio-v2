@@ -2,6 +2,14 @@ const withSass = require("@zeit/next-sass");
 const withCSS = require("@zeit/next-css");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
+  pwa: {
+    dest: "public",
+  },
+});
+
 module.exports = withCSS(
   withSass({
     webpack(config, { dev }) {
