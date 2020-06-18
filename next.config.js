@@ -31,9 +31,11 @@ module.exports = withPWA(
         return config;
       },
       pwa: {
-        disable: process.env.NODE_ENV !== "production",
+        // disable: process.env.NODE_ENV === "development",
         register: true,
+        scope: "/",
         dest: "/public",
+        sw: "/static/sw",
       },
     })
   )
