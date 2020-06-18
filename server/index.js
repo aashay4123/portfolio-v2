@@ -5,7 +5,7 @@ const path = require("path");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+const { parse } = require("url");
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 
@@ -80,7 +80,14 @@ app
     });
 
     server.get("*", (req, res) => {
-      return handle(req, res);
+      const parsedUrl = parse(req.url, true);
+      const { pathname } = parsedUrl;
+      if (pathname === "/sw.js" || pathname.startsWith("/workbox-")) {
+        const filePath = join(__dirname, ".next", pathname);
+        app.serveStatic(req, res, filePath);
+      } else {
+        handle(req, res);
+      }
     });
 
     const PORT = process.env.PORT || 3000;
