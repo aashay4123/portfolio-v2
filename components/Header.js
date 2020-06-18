@@ -72,9 +72,9 @@ const Header = (props) => {
               <BsNavlink link="/portfolios" child="portfolio" />
             </NavItem>
 
-            <NavItem className="port-navbar-item">
+            {/* <NavItem className="port-navbar-item">
               <BsNavlink link="/blogs" child="My blogs" />
-            </NavItem>
+            </NavItem> */}
 
             <NavItem className="port-navbar-item">
               <BsNavlink link="/cv" child="Resume" />
